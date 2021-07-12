@@ -1,8 +1,8 @@
 <template>
-  <div class="livre">
-    <h3>{{ livre.title }}</h3>
-    <h4>{{ livre.author }}</h4>
-    <p>{{ livre.description }}</p>
+  <div class="book">
+    <h3>{{ book.title }}</h3>
+    <h4>{{ book.author }}</h4>
+    <p>{{ book.description }}</p>
 <!--    <button v-on:click="clicked(livre.id)">Get Livre</button>-->
 
   </div>
@@ -16,7 +16,7 @@
 
 export default {
   props: {
-    livre: {
+    book: {
       type: Object,
       required: true
     }
