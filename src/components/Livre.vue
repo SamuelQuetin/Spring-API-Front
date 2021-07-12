@@ -1,12 +1,19 @@
 <template>
   <div class="livre">
-    <h3>{{ livre.titre }}</h3>
-    <h4>{{ livre.auteur }}</h4>
+    <h3>{{ livre.title }}</h3>
+    <h4>{{ livre.author }}</h4>
     <p>{{ livre.description }}</p>
+<!--    <button v-on:click="clicked(livre.id)">Get Livre</button>-->
+
   </div>
 </template>
 
 <script>
+
+// function clicked(element) {
+//   console.log('atest('+element+')');
+// }
+
 export default {
   props: {
     livre: {
@@ -14,6 +21,7 @@ export default {
       required: true
     }
   },
+  // methods: clicked(),
 };
 </script>
 
