@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <add-livre/>
     <livre v-for="livre in livres" :key="livre.id" :livre="livre"/>
   </div>
 </template>
@@ -8,10 +9,12 @@
 // @ is an alias to /src
 import Livre from "@/components/Livre.vue";
 import axios from "axios"
+import AddLivre from "@/components/addLivre";
 
 export default {
   name: "Home",
   components: {
+    AddLivre,
     Livre,
   },
   data() {
