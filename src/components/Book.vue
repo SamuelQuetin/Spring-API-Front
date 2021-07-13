@@ -24,9 +24,9 @@ export default {
   },
   methods: {
     deleteBook: function () {
+      //TODO: leave choice to cancel with a better alert
       alert("deleting of the book \""  + this.book.title+ " \"");
-      axios.delete(process.env.VUE_APP_URL+"/api/deleteBook/"+this.book.id)
-          .then(this.$forceUpdate());
+      axios.delete(process.env.VUE_APP_URL+"/api/deleteBook/"+this.book.id);
       this.isDelete = true;
     },
   },
