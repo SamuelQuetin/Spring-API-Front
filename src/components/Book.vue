@@ -1,5 +1,5 @@
 <template>
-  <div class="book">
+  <div class="book" v-if="!isDelete">
     <button v-on:click="deleteBook">Delete</button>
     <h3>{{ book.title }}</h3>
     <h4>{{ book.author }}</h4>
@@ -17,11 +17,17 @@ export default {
       required: true,
     },
   },
+  data() {
+    return {
+      isDelete: false,
+    };
+  },
   methods: {
     deleteBook: function () {
       alert("deleting of the book \""  + this.book.title+ " \"");
-      axios(process.env.VUE_APP_URL+"/api/deleteBook/"+this.book.id)
+      axios.delete(process.env.VUE_APP_URL+"/api/deleteBook/"+this.book.id)
           .then(this.$forceUpdate());
+      this.isDelete = true;
     },
   },
 };
