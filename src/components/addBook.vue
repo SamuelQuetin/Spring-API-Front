@@ -8,7 +8,8 @@
     <input type="text" v-model="book.title" name="title">
     <p>Description</p>
     <input type="text" v-model="book.description" name="description">
-    <input type="submit" value="submit">
+    <br/>
+    <input type="submit" value="add">
   </form>
 </template>
 
@@ -25,7 +26,7 @@ export default {
   methods:{
     send: function (){
       console.log(this.book);
-      axios.post("http://localhost:8080/api/postLivre",this.book);
+      axios.post(process.env.VUE_APP_URL+"/api/postBook",this.book);
     }
   }
 }

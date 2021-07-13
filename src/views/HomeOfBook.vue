@@ -1,14 +1,14 @@
 <template>
   <div class="home">
-    <add-book/>
-    <book v-for="book in books" :key="book.id" :book="book"/>
+    <add-book></add-book>
+    <book v-for="book in books" :key="book.id" :book="book"></book>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import Book from "@/components/Book.vue";
-import axios from "axios"
+import axios from "axios";
 import AddBook from "@/components/addBook";
 
 export default {
@@ -19,14 +19,16 @@ export default {
   },
   data() {
     return {
-      books: {}
-    }
+      books: {},
+    };
   },
   created() {
-    axios.get('http://localhost:8080/api/getLivres')
-    .then( response => {this.books = response.data;})
-    .catch(error => console.log(error))
-  }
-
+    axios
+      .get(process.env.VUE_APP_URL+"/api/getBooks")
+      .then((response) => {
+        this.books = response.data;
+      })
+      .catch((error) => console.log(error));
+  },
 };
 </script>
