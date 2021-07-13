@@ -1,7 +1,9 @@
 <template>
   <div class="home">
     <add-book></add-book>
-    <book v-for="book in books" :key="book.id" :book="book"></book>
+    <div class="lineBook">
+      <book v-for="book in books" :key="book.id" :book="book"></book>
+    </div>
   </div>
 </template>
 
@@ -32,3 +34,15 @@ export default {
   },
 };
 </script>
+<style scoped>
+
+.lineBook {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: space-between;
+
+
+}
+</style>
