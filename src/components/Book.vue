@@ -24,10 +24,10 @@ export default {
   },
   methods: {
     deleteBook: function () {
-      //TODO: leave choice to cancel with a better alert
-      alert("deleting of the book \""  + this.book.title+ " \"");
-      axios.delete(process.env.VUE_APP_URL+"/api/deleteBook/"+this.book.id);
-      this.isDelete = true;
+      if(confirm("deleting the book \""  + this.book.title+ "\" de "+ this.book.author)) {
+        axios.delete(process.env.VUE_APP_URL + "/api/deleteBook/" + this.book.id);
+        this.isDelete = true;
+      }
     },
   },
 };
