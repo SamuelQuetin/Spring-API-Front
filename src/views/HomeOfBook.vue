@@ -8,7 +8,7 @@
 </template>
 
 <script>
-// @ is an alias to /src
+
 import Book from "@/components/Book.vue";
 import axios from "axios";
 import AddBook from "@/components/addBook";
@@ -39,9 +39,7 @@ export default {
 .lineBook {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  align-content: space-between;
+  justify-content: space-evenly;
 
 
 }

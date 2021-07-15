@@ -11,10 +11,12 @@
     <p>Title</p>
     <input type="text" v-model="book.title" name="title" placeholder="book's title">
     <p>Description</p>
-    <input type="text" v-model="book.description" name="description" placeholder="description">
+    <textarea v-model="book.description" name="description" placeholder="description"/>
     <br/>
     <br/>
     <input type="submit" value="add">
+    <br>
+    <p> </p>
   </form>
 </template>
 
