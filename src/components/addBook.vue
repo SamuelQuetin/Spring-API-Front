@@ -6,10 +6,10 @@
         <b>Please correct the following error(s):</b>
         <li v-for="error in errors" :key="error">{{ error }}</li>
     </div>
-    <p>Author</p>
-    <input type="text" v-model="book.author" name="author" placeholder="author's name">
     <p>Title</p>
     <input type="text" v-model="book.title" name="title" placeholder="book's title">
+    <p>Author</p>
+    <input type="text" v-model="book.author" name="author" placeholder="author's name">
     <p>Description</p>
     <textarea v-model="book.description" name="description" placeholder="description"/>
     <br/>
