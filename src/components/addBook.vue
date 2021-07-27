@@ -40,8 +40,11 @@ export default {
         this.errors.push("the author name is missing");
       if (!this.book.description)
         this.errors.push("the description is missing");
-      if (this.errors.length === 0)
+      if (this.errors.length === 0) {
         axios.post(process.env.VUE_APP_URL + "/api/postBook", this.book);
+        this.$store.commit('addBook');
+        console.log(this.$store.state.nbBooks);
+      }
     }
   }
 }

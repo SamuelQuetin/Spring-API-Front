@@ -33,6 +33,7 @@ export default {
       if(confirm("deleting the book \""  + this.book.title+ "\" de "+ this.book.author)) {
         axios.delete(process.env.VUE_APP_URL + "/api/deleteBook/" + this.book.id);
         this.isDelete = true;
+        this.$store.commit('deleteBook');
       }
     },
   },
