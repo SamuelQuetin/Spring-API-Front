@@ -4,7 +4,7 @@
       <h3>{{ book.title }}</h3>
       <h4>{{ book.author }}</h4>
       <p>{{ book.description }}</p>
-      <button v-on:click="updateBook">update ?</button>
+      <button v-on:click="updateBook">update</button>
     </div>
     <div v-if="isUpdate">
       <form action="#" @submit="saveBook">

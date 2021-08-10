@@ -1,6 +1,9 @@
-import { createRouter, createWebHistory } from "vue-router";
+import Vue from 'vue'
+import VueRouter from "vue-router";
 import HomeOfBook from "../views/HomeOfBook.vue";
 import BookDetail from "../views/BookDetail.vue";
+
+Vue.use(VueRouter)
 
 const routes = [
   {
@@ -23,9 +26,9 @@ const routes = [
   },
 ];
 
-const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
-  routes,
-});
+const router = new VueRouter({
+  // history: createWebHistory(process.env.BASE_URL),
+  routes
+})
 
 export default router;

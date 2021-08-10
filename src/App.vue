@@ -1,9 +1,9 @@
 <template>
-  <div id="nav">
+  <div id="app">
     <router-link to="/">Home of Book</router-link> |
     <router-link to="/useless">useless page</router-link>
+    <router-view />
   </div>
-  <router-view />
 </template>
 
 <style>
@@ -15,9 +15,6 @@
   color: #2c3e50;
 }
 
-#nav {
-  padding: 30px;
-}
 
 #nav a {
   font-weight: bold;
