@@ -1,12 +1,14 @@
 <template>
   <div id="app">
-    <v-app>
+    <v-app id="inspire">
+
       <v-main>
         <router-link to="/">Home of Book</router-link>
         <router-link to="/useless">useless page</router-link>
 
         <router-view/>
       </v-main>
+
     </v-app>
   </div>
 </template>

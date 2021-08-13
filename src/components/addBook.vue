@@ -2,23 +2,46 @@
   <div>
     <h1>Book</h1>
 
-    <form action="#" @submit="send">
-      <div v-if="errors.length">
-        <b>Please correct the following error(s):</b>
-        <li v-for="error in errors" :key="error">{{ error }}</li>
-      </div>
+    <v-form
+        ref="form"
+        action="#"
+        @submit="send"
+        v-model="valid">
       <p>Title</p>
-      <input type="text" v-model="book.title" name="title" placeholder="book's title">
+      <v-text-field
+          v-model="book.title"
+          :rules="titleRules"
+          name="title"
+          placeholder="book's title"
+          required/>
       <p>Author</p>
-      <input type="text" v-model="book.author" name="author" placeholder="author's name">
+      <v-text-field
+          type="text"
+          v-model="book.author"
+          name="author"
+          placeholder="author's name"
+          :rules="authorRules"
+          required/>
       <p>Description</p>
-      <textarea v-model="book.description" name="description" placeholder="description"/>
+      <v-textarea
+          clearable
+          clear-icon="logo.png"
+          v-model="book.description"
+          name="description"
+          placeholder="description"
+          :rules="descriptionRules"
+          required/>
       <br/>
       <br/>
-      <input type="submit" value="add">
+      <v-btn
+          :disabled="!valid"
+          type="submit"
+          value="add">
+        add {{ book.title }}
+      </v-btn>
       <br>
       <p></p>
-    </form>
+    </v-form>
   </div>
 </template>
 
@@ -29,24 +52,27 @@ export default {
   name: "addBook",
   data() {
     return {
-      errors: [],
-      book: {}
+      book: {},
+      valid: true,
+      titleRules: [
+        v => !!v || 'Title is required',
+        v => (v && v.length <= 100) || 'Title must be less than 100 characters',
+      ],
+      authorRules: [
+        v => !!v || 'Author is required',
+        v => (v && v.length <= 50) || 'Author must be less than 50 characters',
+      ],
+      descriptionRules: [
+        v => !!v || 'Description is required',
+        v => (v && v.length <= 500) || 'Description must be less than 500 characters',
+      ],
     }
   },
   methods: {
     send: function () {
-      this.errors = [];
-      if (!this.book.title)
-        this.errors.push("the title is missing");
-      if (!this.book.author)
-        this.errors.push("the author name is missing");
-      if (!this.book.description)
-        this.errors.push("the description is missing");
-      if (this.errors.length === 0) {
-        axios.post(process.env.VUE_APP_URL + "/api/postBook", this.book);
-        this.$store.commit('addBook');
-        console.log(this.$store.state.nbBooks);
-      }
+      axios.post(process.env.VUE_APP_URL + "/api/postBook", this.book);
+      this.$store.commit('addBook');
+      console.log(this.$store.state.nbBooks);
     }
   }
 }
