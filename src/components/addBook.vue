@@ -5,6 +5,7 @@
       <v-form
           ref="form"
           action="#"
+          id="form"
           @submit="send"
           v-model="valid">
         <p>Title</p>
@@ -77,8 +78,7 @@ export default {
 </script>
 
 <style scoped>
-.addblock {
-  width: 10px;
-  height: 10px;
+#form {
+  padding: 2.5%;
 }
 </style>
