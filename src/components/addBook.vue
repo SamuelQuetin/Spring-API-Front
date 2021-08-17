@@ -1,47 +1,45 @@
 <template>
-  <div>
-    <h1>Book</h1>
-
-    <v-form
-        ref="form"
-        action="#"
-        @submit="send"
-        v-model="valid">
-      <p>Title</p>
-      <v-text-field
-          v-model="book.title"
-          :rules="titleRules"
-          name="title"
-          placeholder="book's title"
-          required/>
-      <p>Author</p>
-      <v-text-field
-          type="text"
-          v-model="book.author"
-          name="author"
-          placeholder="author's name"
-          :rules="authorRules"
-          required/>
-      <p>Description</p>
-      <v-textarea
-          clearable
-          clear-icon="logo.png"
-          v-model="book.description"
-          name="description"
-          placeholder="description"
-          :rules="descriptionRules"
-          required/>
-      <br/>
-      <br/>
-      <v-btn
-          :disabled="!valid"
-          type="submit"
-          value="add">
-        add {{ book.title }}
-      </v-btn>
-      <br>
-      <p></p>
-    </v-form>
+  <div id="addblock">
+    <v-card elevation="12">
+      <v-card-title> New Book </v-card-title>
+      <v-form
+          ref="form"
+          action="#"
+          @submit="send"
+          v-model="valid">
+        <p>Title</p>
+        <v-text-field
+            v-model="book.title"
+            :rules="titleRules"
+            name="title"
+            placeholder="book's title"
+            required/>
+        <p>Author</p>
+        <v-text-field
+            type="text"
+            v-model="book.author"
+            name="author"
+            placeholder="author's name"
+            :rules="authorRules"
+            required/>
+        <p>Description</p>
+        <v-textarea
+            clearable
+            clear-icon="X"
+            v-model="book.description"
+            name="description"
+            placeholder="description"
+            :rules="descriptionRules"
+            required/>
+        <br/>
+        <v-btn
+            :disabled="!valid"
+            type="submit"
+            value="add">
+          add {{ book.title }}
+        </v-btn>
+      </v-form>
+    </v-card>
   </div>
 </template>
 
@@ -79,5 +77,8 @@ export default {
 </script>
 
 <style scoped>
-
+.addblock {
+  width: 10px;
+  height: 10px;
+}
 </style>

@@ -1,7 +1,9 @@
 <template>
   <div class="home">
+    <h1>Book</h1>
     <h2>Nombre de livre stocké : {{ $store.state.nbBooks }}</h2>
     <add-book></add-book>
+    <br/>
     <div class="lineBook">
       <book v-for="book in books" :key="book.id" :book="book"></book>
     </div>
@@ -40,5 +42,10 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+}
+#addblock{
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
 }
 </style>
