@@ -2,17 +2,23 @@
   <div class="home">
     <v-parallax
         src="https://cdn.cstj.qc.ca/wp-content/uploads/2020/01/17103643/bibliothe%CC%80que-2952871.jpg"
-        height="100vh"
-        dark
+        height="750"
     >
-      <h1>Book</h1>
-      <h2>Nombre de livre stocké : {{ $store.state.nbBooks }}</h2>
+      <v-card>
+        <h1>Book</h1>
+        <h2>Nombre de livre stocké : {{ $store.state.nbBooks }}</h2>
+      </v-card>
+      <br>
       <add-book></add-book>
-      <br/>
-      <div class="lineBook">
-        <book v-for="book in books" :key="book.id" :book="book"></book>
-      </div>
+      <br>
+
     </v-parallax>
+
+
+    <br/>
+    <div class="lineBook">
+      <book v-for="book in books" :key="book.id" :book="book"></book>
+    </div>
   </div>
 </template>
 

@@ -3,10 +3,8 @@
   <div id="app">
     <v-app>
 <!--          src="https://cdn.cstj.qc.ca/wp-content/uploads/2020/01/17103643/bibliothe%CC%80que-2952871.jpg"-->
+      <NavBar/>
       <v-main>
-        <router-link to="/">Home of Book</router-link>
-        <router-link to="/useless">useless page</router-link>
-
         <router-view/>
       </v-main>
 
@@ -39,3 +37,14 @@
   color: #42b983;
 }
 </style>
+<script>
+import NavBar from "@/components/NavBar";
+
+export default {
+  name: 'App',
+
+  components: {
+    NavBar
+  }
+}
+</script>
