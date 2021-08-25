@@ -16,6 +16,7 @@
 
 
     <br/>
+    <h2>Book's list</h2>
     <div class="lineBook">
       <book v-for="book in books" :key="book.id" :book="book"></book>
     </div>
