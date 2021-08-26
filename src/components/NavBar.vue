@@ -33,6 +33,7 @@ export default {
   data: () => ({
     links: [
       {'namePage': 'Home of Book', 'route': '/'},
+      {'namePage': 'Search', 'route': '/search'},
       {'namePage': 'Useless', 'route': '/useless'},
     ]
   }),

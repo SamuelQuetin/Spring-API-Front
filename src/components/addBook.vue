@@ -71,7 +71,6 @@ export default {
     send: function () {
       axios.post(process.env.VUE_APP_URL + "/api/postBook", this.book);
       this.$store.commit('addBook');
-      console.log(this.$store.state.nbBooks);
     }
   }
 }

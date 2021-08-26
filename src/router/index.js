@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from "vue-router";
 import HomeOfBook from "../views/HomeOfBook.vue";
 import BookDetail from "../views/BookDetail.vue";
+import SearchPage from "@/views/SearchPage";
 
 Vue.use(VueRouter)
 
@@ -10,6 +11,11 @@ const routes = [
     path: "/",
     name: "HomeOfBook",
     component: HomeOfBook,
+  },
+  {
+    path: "/search",
+    name: "SearchPage",
+    component: SearchPage,
   },
   {
     path: '/book/:id',
